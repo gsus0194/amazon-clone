@@ -1,6 +1,6 @@
-import React from 'react'
-import './Home.css'
-import Product from './Product'
+import React from "react";
+import "./Home.css";
+import Product from "./Product";
 
 const Home = () => {
   return (
@@ -15,14 +15,14 @@ const Home = () => {
         <div className="home__row">
           <Product
             id="12321341"
-            title='The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback'
+            title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
             price={29.99}
             image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
             rating={5}
           />
           <Product
             id="49538094"
-            title='Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl'
+            title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
             price={239.0}
             image="https://images-na.ssl-images-amazon.com/images/I/91gRKbX%2BS8L._AC_SL1500_.jpg"
             rating={4}
@@ -64,7 +64,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
