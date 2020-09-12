@@ -11,16 +11,16 @@ const reducer = (state, action) => {
   // console.log(action);
 
   switch (action.type) {
-    case "UPDATE_BASKET":
-      return {
-        ...state,
-        basket: [...action.new],
-      };
-
     case "ADD_TO_BASKET":
       return {
         ...state,
         basket: [...state.basket, action.item],
+      };
+
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: [],
       };
 
     case "REMOVE_FROM_BASKET":

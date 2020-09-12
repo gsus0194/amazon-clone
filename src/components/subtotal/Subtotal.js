@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Subtotal.css";
 import CurrencyFormat from "react-currency-format";
-import { useStateValue } from "./StateProvider";
-import { getBasketTotal } from "./reducer";
+import { useStateValue } from "../../StateProvider";
+import { getBasketTotal } from "../../reducer";
+import { useHistory } from "react-router-dom";
 
 const Subtotal = () => {
+  const history = useHistory();
   const [{ basket }] = useStateValue();
+  const [error, setError] = useState(false);
 
-  // const getBasketTotal = (items) => {
-  //   return items.reduce((a, b) => {
-  //     return a + b.price
-  //   }, 0)
-  // }
+  const handleBasketItems = () => {
+    if (basket.length > 0) {
+      history.push("/payment");
+    }
+
+    setError(true);
+  };
 
   return (
     <div className="subtotal">
@@ -25,6 +30,12 @@ const Subtotal = () => {
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift
             </small>
+
+            {error && (
+              <small className="subtotal__error">
+                <strong>Add some items to your basket!</strong>
+              </small>
+            )}
           </>
         )}
         decimalScale={2}
@@ -34,7 +45,7 @@ const Subtotal = () => {
         prefix={"$"}
       />
 
-      <button>Proceed to Checkout</button>
+      <button onClick={handleBasketItems}>Proceed to Checkout</button>
     </div>
   );
 };
